@@ -1,0 +1,76 @@
+1. Utworzyc encje:
+GraOB
+    Long id;
+    Date dataUtworzenia; // (wypelniane new Date() przy tworzeniu nowego rekordu)
+    String tytul;
+    EGatunek gatunek;
+    String developer;
+    Integer rokWydania;
+
+
+2. Utworzyc enum:
+EGatunek: SANDBOX, FPS, BIJATYKA
+
+
+3. Utworzyc pelny CRUD:
+GET /api/gry/findOne - zwraca 1 rekord po jego id
+in: Long "id"
+out: GraDTO
+
+GET /api/gry/findAll - zwraca wszystkie rekordy
+in: void
+out: List<GraDTO>
+
+GET /api/gry/deleteOne - usuwa 1 rekord po jego id
+in: Long "id"
+out: void
+
+POST /api/gry/save - zapisuje rekord do bazy i zwraca zapisany rekord
+in: GraDTO
+out: GraDTO
+
+
+4. Struktura DTO:
+GraDTO
+    Long id;
+    String tytul;
+    EGatunek gatunek;
+    String developer;
+    Integer rokWydania;
+
+
+5. Dane do zapelnienia bazy (w zadaniu na 5 dane sa inne):
+{
+"tytul":"Minecraft",
+"gatunek":"SANDBOX",
+"developer":"Mojang",
+"rokWydania":2011
+}
+
+{
+"tytul":"Tekken 3",
+"gatunek":"BIJATYKA",
+"developer":"Namco",
+"rokWydania":1998
+}
+
+{
+"tytul":"Unreal Tournament 3",
+"gatunek":"FPS",
+"developer":"Epic Games",
+"rokWydania":2007
+}
+
+{
+"tytul":"Quake 3 Arena",
+"gatunek":"FPS",
+"developer":"id Software",
+"rokWydania":1999
+}
+
+{
+"tytul":"Battlefield 3",
+"gatunek":"FPS",
+"developer":"EA DICE",
+"rokWydania":2011
+}

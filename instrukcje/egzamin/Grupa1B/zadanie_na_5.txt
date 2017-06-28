@@ -1,0 +1,89 @@
+1. Zrobic zadanie na 4.
+
+
+2. Utworzyc encje (z ewentualnymi polami relacyjnymi):
+TypOB
+    Long id;
+    String gatunek;
+    String klimat;
+
+
+3. Utworzyc relacje
+@OneToOne po stronie TypOB, wiazaca TypOB z GraOB
+
+
+4. Utworzyc:
+a) NowaGraDTO (struktura w punkcie 6).
+b) Dostosowac /api/gry/save do przyjecia NowaGraDTO.
+c) Dostosowac serwis do zapisu, tak, aby utrwalal nowe dane w bazie.
+
+
+5. Utworzyc nastepujace resty:
+GET /api/gry/znajdzWgGatunku - zwraca liste GraDTO, ktorych gatunek jest rowny parametrowi wejsciowemu
+in: String "gatunek"
+out: List<GraDTO>
+
+POST /api/gry/znajdzWgKlimatuIDevelopera - zwraca liste NowaGraDTO, ktorych klimat i developer sa zgodne z kryteriami w parametrze wejsciowym (w pelni rowne)
+in: CritDTO
+out: List<NowaGraDTO>
+
+
+6. Struktura nowych DTO:
+CritDTO
+    String klimat;
+    String developer;
+
+NowaGraDTO
+    Long id;
+    String tytul;
+    EDystrybucja dystrybucja;
+    String developer;
+    String wydawca;
+    String gatunek;
+    String klimat;
+
+
+7. Dane do zapelnienia bazy (inne niz w zadaniu na 3):
+{
+"tytul":"Minecraft",
+"dystrybucja":"INNA",
+"developer":"Mojang",
+"wydawca":"Mojang",
+"gatunek":"Sandbox",
+"klimat":"Fantasy"
+}
+
+{
+"tytul":"Tekken 3",
+"dystrybucja":"INNA",
+"developer":"Namco",
+"wydawca":"Namco",
+"gatunek":"Bijatyka",
+"klimat":"Drama"
+}
+
+{
+"tytul":"Unreal Tournament 3",
+"dystrybucja":"STEAM",
+"developer":"Epic Games",
+"wydawca":"Midway Games",
+"gatunek":"FPS",
+"klimat":"Sci-fi"
+}
+
+{
+"tytul":"Quake 3 Arena",
+"dystrybucja":"STEAM",
+"developer":"id Software",
+"wydawca":"Activision",
+"gatunek":"FPS",
+"klimat":"Sci-fi"
+}
+
+{
+"tytul":"Battlefield 3",
+"dystrybucja":"ORIGIN",
+"developer":"EA DICE",
+"wydawca":"Electronic Arts",
+"gatunek":"FPS",
+"klimat":"Modern"

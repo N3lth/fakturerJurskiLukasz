@@ -1,0 +1,76 @@
+1. Utworzyc encje:
+GraOB
+    Long id;
+    Date dataUtworzenia; // (wypelniane new Date() przy tworzeniu nowego rekordu)
+    String tytul;
+    EDystrybucja dystrybucja;
+    String developer;
+    String wydawca;
+
+
+2. Utworzyc enum:
+EDystrybucja: STEAM, ORIGIN, INNA
+
+
+3. Utworzyc pelny CRUD:
+GET /api/gry/findOne - zwraca 1 rekord po jego id
+in: Long "id"
+out: GraDTO
+
+GET /api/gry/findAll - zwraca wszystkie rekordy
+in: void
+out: List<GraDTO>
+
+GET /api/gry/deleteOne - usuwa 1 rekord po jego id
+in: Long "id"
+out: void
+
+POST /api/gry/save - zapisuje rekord do bazy i zwraca zapisany rekord
+in: GraDTO
+out: GraDTO
+
+
+4. Struktura DTO:
+GraDTO
+    Long id;
+    String tytul;
+    EDystrybucja dystrybucja;
+    String developer;
+    String wydawca;
+
+
+5. Dane do zapelnienia bazy (w zadaniu na 5 dane sa inne):
+{
+"tytul":"Minecraft",
+"dystrybucja":"INNA",
+"developer":"Mojang",
+"wydawca":"Mojang"
+}
+
+{
+"tytul":"Tekken 3",
+"dystrybucja":"INNA",
+"developer":"Namco",
+"wydawca":"Namco"
+}
+
+{
+"tytul":"Unreal Tournament 3",
+"dystrybucja":"STEAM",
+"developer":"Epic Games",
+"wydawca":"Midway Games"
+}
+
+{
+"tytul":"Quake 3 Arena",
+"dystrybucja":"STEAM",
+"developer":"id Software",
+"wydawca":"Activision"
+}
+
+{
+"tytul":"Battlefield 3",
+"dystrybucja":"ORIGIN",
+"developer":"EA DICE",
+"wydawca":"Electronic Arts"
+}

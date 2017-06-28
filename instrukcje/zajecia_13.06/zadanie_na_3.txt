@@ -1,0 +1,76 @@
+1. Utworzyc encje:
+ZwierzeOB
+    Long id;
+    Date dataUtworzenia; // (wypelniane new Date() przy tworzeniu nowego rekordu)
+    String nazwa;
+    EGatunek gatunek;
+    EPlec plec;
+    Integer wiek;
+
+
+2. Utworzyc enumy:
+EGatunek: PIES, KOT, JASZCZURKA
+EPlec: SAMIEC, SAMICA
+
+
+3. Utworzyc pelny CRUD:
+GET /api/zwierzeta/findOne - zwraca 1 rekord po jego id
+in: Long "id"
+out: ZwierzeDTO
+
+GET /api/zwierzeta/findAll - zwraca wszystkie rekordy
+in: void
+out: List<ZwierzeDTO>
+
+GET /api/zwierzeta/deleteOne - usuwa 1 rekord po jego id
+in: Long "id"
+out: void
+
+POST /api/zwierzeta/save - zapisuje rekord do bazy i zwraca zapisany rekord
+in: ZwierzeDTO
+out: ZwierzeDTO
+
+
+4. Struktura DTO:
+ZwierzeDTO
+    String nazwa;
+    EGatunek gatunek;
+    EPlec plec;
+    Integer wiek;
+
+
+5. Dane do zapelnienia bazy (w zadaniu na 5 dane sa inne):
+{
+"nazwa":"Azor",
+"gatunek":"PIES",
+"plec":"SAMIEC",
+"wiek":4
+}
+
+{
+"nazwa":"Hanba",
+"gatunek":"PIES",
+"plec":"SAMICA",
+"wiek":3
+}
+
+{
+"nazwa":"Mruczek",
+"gatunek":"KOT",
+"plec":"SAMIEC",
+"wiek":4
+}
+
+{
+"nazwa":"Diabul",
+"gatunek":"KOT",
+"plec":"SAMIEC",
+"wiek":3
+}
+
+{
+"nazwa":"Zenek",
+"gatunek":"JASZCZURKA",
+"plec":"SAMIEC",
+"wiek":1
+}

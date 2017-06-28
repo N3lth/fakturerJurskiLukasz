@@ -1,0 +1,90 @@
+1. Zrobic zadanie na 4.
+
+
+2. Utworzyc encje (z ewentualnymi polami relacyjnymi):
+WydanieOB
+    Long id;
+    String wydawca;
+    Integer rokWydania;
+
+
+3. Utworzyc relacje
+@OneToOne po stronie WydanieOB, wiazaca WydanieOB z KsiazkaOB
+
+
+4. Utworzyc:
+a) NowaKsiazkaDTO (struktura w punkcie 6).
+b) Dostosowac /api/ksiazki/save do przyjecia NowaKsiazkaDTO.
+c) Dostosowac serwis do zapisu, tak, aby utrwalal nowe dane w bazie.
+
+
+5. Utworzyc nastepujace resty:
+GET /api/ksiazki/znajdzWydanePo - zwraca liste KsiazkaDTO, ktorych rok wydania jest wiekszy niz parametr wejsciowy
+in: Integer "rokWydania"
+out: List<KsiazkaDTO>
+
+POST /api/ksiazki/znajdzWgGatunkuIWydawcy - zwraca liste NowaKsiazkaDTO, ktorych gatunek i wydawca sa zgodne z kryteriami w parametrze wejsciowym (w pelni rowne)
+in: CritDTO
+out: List<NowaKsiazkaDTO>
+
+
+6. Struktura nowych DTO:
+CritDTO
+    EGatunek gatunek;
+    String wydawca;
+
+NowaKsiazkaDTO
+    Long id;
+    String tytul;
+    EGatunek gatunek;
+    String autor;
+    Integer liczbaStron;
+    String wydawca;
+    Integer rokWydania;
+
+
+7. Dane do zapelnienia bazy (inne niz w zadaniu na 3):
+{
+"tytul":"Imajica: Pi�te Dominium",
+"gatunek":"HORROR",
+"autor":"Clive Barker",
+"liczbaStron":504,
+"wydawca":"MAG",
+"rokWydania":2002
+}
+
+{
+"tytul":"Gra o Tron",
+"gatunek":"FANTASY",
+"autor":"Gorge R.R. Martin",
+"liczbaStron":774,
+"wydawca":"ZYSK i S-KA",
+"rokWydania":2003
+}
+
+{
+"tytul":"Wied�min: Sezon Burz",
+"gatunek":"FANTASY",
+"autor":"Andrzej Sapkowski",
+"liczbaStron":404,
+"wydawca":"superNOWA",
+"rokWydania":2013
+}
+
+{
+"tytul":"Wied�min: Miecz Przeznaczenia",
+"gatunek":"FANTASY",
+"autor":"Andrzej Sapkowski",
+"liczbaStron":342,
+"wydawca":"superNOWA",
+"rokWydania":2011
+}
+
+{
+"tytul":"Wied�min: Ostatnie �yczenie",
+"gatunek":"FANTASY",
+"autor":"Andrzej Sapkowski",
+"liczbaStron":286,
+"wydawca":"superNOWA",
+"rokWydania":2011
+}

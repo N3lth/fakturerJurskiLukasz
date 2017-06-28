@@ -1,0 +1,76 @@
+1. Utworzyc encje:
+KsiazkaOB
+    Long id;
+    Date dataUtworzenia; // (wypelniane new Date() przy tworzeniu nowego rekordu)
+    String tytul;
+    EWydawnictwo wydawnictwo;
+    String autor;
+    Double cena;
+
+
+2. Utworzyc enum:
+EWydawnictwo: MAG, ZYSK_I_SKA, SUPERNOWA
+
+
+3. Utworzyc pelny CRUD:
+GET /api/ksiazki/findOne - zwraca 1 rekord po jego id
+in: Long "id"
+out: KsiazkaDTO
+
+GET /api/ksiazki/findAll - zwraca wszystkie rekordy
+in: void
+out: List<KsiazkaDTO>
+
+GET /api/ksiazki/deleteOne - usuwa 1 rekord po jego id
+in: Long "id"
+out: void
+
+POST /api/ksiazki/save - zapisuje rekord do bazy i zwraca zapisany rekord
+in: KsiazkaDTO
+out: KsiazkaDTO
+
+
+4. Struktura DTO:
+KsiazkaDTO
+    Long id;
+    String tytul;
+    EWydawnictwo wydawnictwo;
+    String autor;
+    Double cena;
+
+
+5. Dane do zapelnienia bazy (w zadaniu na 5 dane sa inne):
+{
+"tytul":"Imajica Piate Dominium",
+"wydawnictwo":"MAG",
+"autor":"Clive Barker",
+"cena":35
+}
+
+{
+"tytul":"Gra o Tron",
+"wydawnictwo":"ZYSK_I_SKA",
+"autor":"Gorge R.R. Martin",
+"cena":69
+}
+
+{
+"tytul":"Wiedzmin Sezon Burz",
+"wydawnictwo":"SUPERNOWA",
+"autor":"Andrzej Sapkowski",
+"cena":45
+}
+
+{
+"tytul":"Wiedzmin Miecz Przeznaczenia",
+"wydawnictwo":"SUPERNOWA",
+"autor":"Andrzej Sapkowski",
+"cena":30
+}
+
+{
+"tytul":"Wiedzmin Ostatnie zyczenie",
+"wydawnictwo":"SUPERNOWA",
+"autor":"Andrzej Sapkowski",
+"cena":30
+}

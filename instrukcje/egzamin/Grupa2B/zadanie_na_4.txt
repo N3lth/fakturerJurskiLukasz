@@ -1,0 +1,18 @@
+1. Zrobic zadanie na 3.
+
+
+2. Utworzyc nastepujace resty:
+a)
+GET /api/ksiazki/drozszeNiz - zwraca liste KsiazkaDTO, ktorych cena jest wyzsza niz wejsciowa
+in: Double "cena"
+out: List<KsiazkaDTO>
+
+b)
+GET /api/ksiazki/znajdzWgWydawnictwa - zwraca liste KsiazkaDTO, ktorych wydawnictwo jest rowne parametrowi wejsciowemu
+in: EWydawnictwo "wydawnictwo"
+out: List<KsiazkaDTO>
+
+c)
+GET /api/ksiazki/znajdzKsiazkiKtorychAutorZaczynaSieOd - zwraca liste tytulow ksiazek, ktorych autor zaczyna sie od przekazanego stringa (metoda MUSI BYC NIECZULA na rozmiar liter)
+in: String "partial"
+out: List<String>

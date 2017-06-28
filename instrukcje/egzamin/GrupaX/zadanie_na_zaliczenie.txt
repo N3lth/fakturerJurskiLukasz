@@ -1,0 +1,217 @@
+1. Utworzyc encje:
+    GraOB
+        Long id;
+        Date dataUtworzenia; // (wypelniane new Date() przy tworzeniu nowego rekordu)
+        String tytul;
+        Set<EGatunek> gatunki; // zestaw enumow
+        String developer;
+        Set<WydanieOB> wydania; // relacja @OneToMany
+
+    WydanieDTO
+        Long id;
+        Date dataUtworzenia; // (wypelniane new Date() przy tworzeniu nowego rekordu)
+        String wydawca;
+        String platforma;
+        Integer rokWydania;
+
+
+2. Utworzyc enum:
+    EGatunek: SANDBOX, FPS, BIJATYKA, CASUAL, HARDCORE, ROMANCE, SCI_FI, FANTASY, OPEN_WORLD, REALISM
+
+
+3. Utworzyc pelny CRUD:
+    GET /api/gry/findOne - zwraca 1 rekord po jego id
+        in: Long "id"
+        out: GraDTO
+
+    GET /api/gry/findAll - zwraca wszystkie rekordy
+        in: void
+        out: List<GraDTO>
+
+    GET /api/gry/deleteOne - usuwa 1 rekord po jego id
+        in: Long "id"
+        out: void
+
+    POST /api/gry/save - zapisuje rekord do bazy i zwraca zapisany rekord
+        in: GraDTO
+        out: GraDTO
+
+    POST /api/gry/saveBatch - zapisuje liste rekordow i zwraca liste tych samych rekordow po zapisie
+        in: List<GraDTO>
+        out: <GraDTO>
+
+
+4. Struktura DTO:
+    GraDTO
+        Long id;
+        String tytul;
+        List<EGatunek> gatunki;
+        String developer;
+        Set<WydanieDTO> wydania;
+
+    WydanieDTO
+        Long id;
+        String wydawca;
+        String platforma;
+        Integer rokWydania;
+
+    CritDTO
+        EGatunek gatunek;
+        Integer rokWydania;
+
+
+5. Utworzyc nastepujace resty:
+   a)
+   GET /api/gry/znajdzStarszeNiz - zwraca liste GraDTO, ktorych rok wydania jest mniejszy niz wejsciowy
+       in: Integer "rokWydania"
+       out: List<GraDTO>
+
+   b)
+   GET /api/gry/znajdzWgGatunku - zwraca liste GraDTO, ktorych gatunek zawiera parametrowi wejsciowemu
+       in: EGatunek "gatunek"
+       out: List<GraDTO>
+
+   c)
+   GET /api/gry/znajdzTytulyZawierajace - zwraca liste tytulow gier, ktore zawieraja string przekazany w parametrze (metoda MUSI BYC NIECZULA na rozmiar liter)
+       in: String "partial"
+       out: List<String>
+
+    d)
+    POST /api/gry/znajdzWgGatunkuIRokuWydania - zwraca liste GraDTO, ktorych gatunki zawieraja parametr wejsciowy, a rok wydania jest rowny parametrowi wejsciowemu
+        in: CritDTO
+        out: List<GraDTO>
+
+
+6. Dane do zapelnienia bazy przez u¿ycie metody /api/gry/saveBatch:
+[
+    {
+    "tytul":"Minecraft",
+    "gatunki":
+        [
+            "SANDBOX",
+            "CASUAL",
+            "FANTASY",
+            "OPEN_WORLD"
+        ],
+    "developer":"Mojang",
+    "wydania":
+        [
+            {
+                "wydawca":"Mojang",
+                "platforma":"PC",
+                "rokWydania":2011
+            },
+            {
+                "wydawca":"Mojang",
+                "platforma":"XBox 360",
+                "rokWydania":2012
+            },
+            {
+                "wydawca":"Mojang",
+                "platforma":"Playstation 4",
+                "rokWydania":2014
+            },
+            {
+                "wydawca":"Mojang",
+                "platforma":"Apple TV",
+                "rokWydania":2016
+            }
+        ]
+    },
+    {
+    "tytul":"Tekken 3",
+    "gatunki":
+        [
+            "BIJATYKA",
+            "HARDCORE",
+            "FANTASY"
+        ],
+    "developer":"Namco",
+    "wydania":
+        [
+            {
+                "wydawca":"Namco",
+                "platforma":"Arcade",
+                "rokWydania":1997
+            },
+            {
+                "wydawca":"Namco",
+                "platforma":"Playstation",
+                "rokWydania":1998
+            }
+        ]
+    },
+    {
+    "tytul":"Unreal Tournament 3",
+    "gatunki":
+        [
+            "FPS",
+            "HARDCORE",
+            "SCI_FI"
+        ],
+    "developer":"Epic Games",
+    "wydania":
+        [
+            {
+                "wydawca":"Midway Games",
+                "platforma":"PC",
+                "rokWydania":2007
+            },
+            {
+                "wydawca":"Midway Games",
+                "platforma":"Playstation 3",
+                "rokWydania":2008
+            },
+            {
+                "wydawca":"Midway Games",
+                "platforma":"XBox 360",
+                "rokWydania":2008
+            }
+        ]
+    },
+    {
+    "tytul":"Quake 3 Arena",
+    "gatunki":
+        [
+            "FPS",
+            "HARDCORE",
+            "SCI_FI"
+        ],
+    "developer":"id Software",
+    "wydania":
+        [
+            {
+                "wydawca":"Activision",
+                "platforma":"PC",
+                "rokWydania":1999
+            }
+        ]
+    },
+    {
+    "tytul":"Battlefield 3",
+    "gatunki":
+        [
+            "FPS",
+            "REALISM"
+        ],
+    "developer":"EA DICE",
+    "wydania":
+        [
+            {
+                "wydawca":"Electronic Arts",
+                "platforma":"PC",
+                "rokWydania":2011
+            },
+            {
+                "wydawca":"Electronic Arts",
+                "platforma":"Playstation 3",
+                "rokWydania":2011
+            },
+            {
+                "wydawca":"Electronic Arts",
+                "platforma":"Xbox 360",
+                "rokWydania":2011
+            }
+        ]
+    }
+]

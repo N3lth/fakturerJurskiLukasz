@@ -1,0 +1,18 @@
+1. Zrobic zadanie na 3.
+
+
+2. Utworzyc nastepujace resty:
+a)
+GET /api/gry/znajdzStarszeNiz - zwraca liste GraDTO, ktorych rok wydania jest mniejszy niz wejsciowy
+in: Integer "rokWydania"
+out: List<GraDTO>
+
+b)
+GET /api/gry/znajdzWgGatunku - zwraca liste GraDTO, ktorych gatunek jest rowny parametrowi wejsciowemu
+in: EGatunek "gatunek"
+out: List<GraDTO>
+
+c)
+GET /api/gry/znajdzGryKtorychTytulZawiera - zwraca liste tytulow gier, ktore zawieraja string przekazany w parametrze (metoda MUSI BYC NIECZULA na rozmiar liter)
+in: String "partial"
+out: List<String>

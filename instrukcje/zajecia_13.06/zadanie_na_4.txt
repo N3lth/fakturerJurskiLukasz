@@ -1,0 +1,24 @@
+1. Zrobic zadanie na 3.
+
+
+2. Utworzyc nastepujace resty:
+a)
+GET /api/zwierzeta/znajdzStarszeNiz - zwraca liste ZwierzeDTO ktorych wiek jest wiekszy niz parametr wejsciowy
+in: Integer "wiek"
+out: List<ZwierzeDTO>
+
+b)
+GET /api/zwierzeta/znajdzWgGatunku - zwraca liste ZwierzeDTO ktorych gatunek jest rowny parametrowi wejsciowemu
+in: EGatunek "gatunek"
+out: List<ZwierzeDTO>
+
+c)
+GET /api/zwierzeta/znajdzZwierzetaZImieniemZaczynajacymSieOd - zwraca liste zwierzat, ktorych imie zaczyna sie od parametru, metoda musi ignorowac rozmiar liter
+in: String "partial"
+out: List<ZwierzeNazwaIWiekDTO>
+
+
+3. Struktura nowych DTO:
+ZwierzeNazwaIWiekDTO
+    String nazwa;
+    Integer wiek;

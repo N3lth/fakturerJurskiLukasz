@@ -1,0 +1,90 @@
+1. Zrobic zadanie na 4.
+
+
+2. Utworzyc encje (z ewentualnymi polami relacyjnymi):
+WydanieOB
+    Long id;
+    String wydawca;
+    String platforma;
+
+
+3. Utworzyc relacje
+@OneToOne po stronie WydanieOB, wiazaca WydanieOB z GraOB
+
+
+4. Utworzyc:
+a) NowaGraDTO (struktura w punkcie 6).
+b) Dostosowac /api/gry/save do przyjecia NowaGraDTO.
+c) Dostosowac serwis do zapisu, tak, aby utrwalal nowe dane w bazie.
+
+
+5. Utworzyc nastepujace resty:
+GET /api/gry/znajdzWgPlatformy - zwraca liste GraDTO, ktorych platforma jest rowna parametrowi wejsciowemu
+in: String "platforma"
+out: List<GraDTO>
+
+POST /api/gry/znajdzWgGatunkuIWydawcy - zwraca liste NowaGraDTO, ktorych gatunek i wydawca sa zgodne z kryteriami w parametrze wejsciowym (w pelni rowne)
+in: CritDTO
+out: List<NowaGraDTO>
+
+
+6. Struktura nowych DTO:
+CritDTO
+    EGatunek gatunek;
+    String wydawca;
+
+NowaGraDTO
+    Long id;
+    String tytul;
+    EGatunek gatunek;
+    String developer;
+    Integer rokWydania;
+    String wydawca;
+    String platforma;
+
+
+7. Dane do zapelnienia bazy (inne niz w zadaniu na 3):
+{
+"tytul":"Minecraft",
+"gatunek":"SANDBOX",
+"developer":"Mojang",
+"rokWydania":2011,
+"wydawca":"Mojang",
+"platforma":"PC"
+}
+
+{
+"tytul":"Tekken 3",
+"gatunek":"BIJATYKA",
+"developer":"Namco",
+"rokWydania":1998,
+"wydawca":"Namco",
+"platforma":"PS"
+}
+
+{
+"tytul":"Unreal Tournament 3",
+"gatunek":"FPS",
+"developer":"Epic Games",
+"rokWydania":2007,
+"wydawca":"Midway Games",
+"platforma":"PC"
+}
+
+{
+"tytul":"Quake 3 Arena",
+"gatunek":"FPS",
+"developer":"id Software",
+"rokWydania":1999,
+"wydawca":"Activision",
+"platforma":"PC"
+}
+
+{
+"tytul":"Battlefield 3",
+"gatunek":"FPS",
+"developer":"EA DICE",
+"rokWydania":2011,
+"wydawca":"Electronic Arts",
+"platforma":"PC"
+}

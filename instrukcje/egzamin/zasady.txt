@@ -1,0 +1,14 @@
+1. Można używać dowolnych materiałów oraz internetu.
+2. Nie można się komunikować z innymi osobami.
+3. Egzamin trwa 150 minut
+4. Aby uzyskać ocenę należy przedstawić działający program, tzn:
+- egzaminowany przy sprawdzaniu musi przedstawić:
+ * uruchomiony program z wczytanymi danymi przykładowymi (punkt 5 zadania na 3 lub punkt 7 zadania na 5)
+ * przynajmniej po jednym przykładzie użycia restów (w standalone) (punkt 3 zadania na 3, punkt 2 zadania na 4, punkt 5 zadania na 5)
+ * przykłady muszą zwracać poprawne wyniki (w przypadku błędów można próbować się bronić stwierdzając przyczynę i podejście do rozwiązania błędu)
+- egzaminowany musi odpowiedzieć na 0-3 pytania z aplikacji zadane przez egzaminującego
+ * liczba pytań zależna jest od:
+    ** jakości wyników prezentowanego programu
+    ** sprawności prezentowania programu (i ewentualnego bronienia się w przypadku błędów)
+    ** poziomu "podejrzanego zachowania" podczas pisania egzaminu
+    ** "grzechów przeszlości" pisanych i niepisanych plusów oraz minusów z czasu trwania zajęć

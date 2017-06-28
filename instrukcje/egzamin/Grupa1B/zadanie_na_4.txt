@@ -1,0 +1,18 @@
+1. Zrobic zadanie na 3.
+
+
+2. Utworzyc nastepujace resty:
+a)
+GET /api/gry/znajdzWgWydawcy - zwraca liste GraDTO, ktorych wydawca jest rowny parametrowi wejsciowemu (metoda MUSI BYC CZULA na rozmiar liter)
+in: String "wydawca"
+out: List<GraDTO>
+
+b)
+GET /api/gry/znajdzWgDystrybucji - zwraca liste GraDTO, ktorych gatunek jest rowny parametrowi wejsciowemu
+in: EDystrybucja "dystrybucja"
+out: List<GraDTO>
+
+c)
+GET /api/gry/znajdzGryKtorychTytulZaczynaSieOd - zwraca liste tytulow gier, ktorych tytuly zaczynaja sie od stringa przekazanego w parametrze (metoda MUSI BYC CZULA na rozmiar liter)
+in: String "partial"
+out: List<String>

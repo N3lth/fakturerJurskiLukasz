@@ -1,0 +1,76 @@
+1. Utworzyc encje:
+KsiazkaOB
+    Long id;
+    Date dataUtworzenia; // (wypelniane new Date() przy tworzeniu nowego rekordu)
+    String tytul;
+    EGatunek gatunek;
+    String autor;
+    Integer liczbaStron;
+
+
+2. Utworzyc enum:
+EGatunek: FANTASY, HORROR, BIOGRAFICZNA
+
+
+3. Utworzyc pelny CRUD:
+GET /api/ksiazki/findOne - zwraca 1 rekord po jego id
+in: Long "id"
+out: KsiazkaDTO
+
+GET /api/ksiazki/findAll - zwraca wszystkie rekordy
+in: void
+out: List<KsiazkaDTO>
+
+GET /api/ksiazki/deleteOne - usuwa 1 rekord po jego id
+in: Long "id"
+out: void
+
+POST /api/ksiazki/save - zapisuje rekord do bazy i zwraca zapisany rekord
+in: KsiazkaDTO
+out: KsiazkaDTO
+
+
+4. Struktura DTO:
+KsiazkaDTO
+    Long id;
+    String tytul;
+    EGatunek gatunek;
+    String autor;
+    Integer liczbaStron;
+
+
+5. Dane do zapelnienia bazy (w zadaniu na 5 dane sa inne):
+{
+"tytul":"Imajica: Pi�te Dominium",
+"gatunek":"HORROR",
+"autor":"Clive Barker",
+"liczbaStron":504
+}
+
+{
+"tytul":"Gra o Tron",
+"gatunek":"FANTASY",
+"autor":"Gorge R.R. Martin",
+"liczbaStron":774
+}
+
+{
+"tytul":"Wied�min: Sezon Burz",
+"gatunek":"FANTASY",
+"autor":"Andrzej Sapkowski",
+"liczbaStron":404
+}
+
+{
+"tytul":"Wied�min: Miecz Przeznaczenia",
+"gatunek":"FANTASY",
+"autor":"Andrzej Sapkowski",
+"liczbaStron":342
+}
+
+{
+"tytul":"Wied�min: Ostatnie �yczenie",
+"gatunek":"FANTASY",
+"autor":"Andrzej Sapkowski",
+"liczbaStron":286
+}
